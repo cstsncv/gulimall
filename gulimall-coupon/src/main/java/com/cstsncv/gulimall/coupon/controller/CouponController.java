@@ -5,6 +5,8 @@ import java.util.Map;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,9 +30,18 @@ import com.cstsncv.common.utils.R;
 @RestController
 @RequestMapping("coupon/coupon")
 @Slf4j
+@RefreshScope
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    @Value("${coupon.user.name:false}")
+    private String name;
+
+    @Value("${coupon.user.age:11}")
+    private Integer age;
+
+
 
     /**
      * 列表
@@ -43,11 +54,18 @@ public class CouponController {
         return R.ok().put("coupons", Arrays.asList(couponEntity));
     }
 
+    // 测试feign
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = couponService.queryPage(params);
         return R.ok().put("page", page);
     }
+
+    @RequestMapping("/test")
+    public R test(){
+        return R.ok().put("name", name).put("age", age);
+    }
+
 
 
     /**
