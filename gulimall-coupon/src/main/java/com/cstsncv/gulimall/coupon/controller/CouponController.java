@@ -30,7 +30,7 @@ import com.cstsncv.common.utils.R;
 @RestController
 @RequestMapping("coupon/coupon")
 @Slf4j
-@RefreshScope
+@RefreshScope  //nacos config 动态刷新
 public class CouponController {
     @Autowired
     private CouponService couponService;
