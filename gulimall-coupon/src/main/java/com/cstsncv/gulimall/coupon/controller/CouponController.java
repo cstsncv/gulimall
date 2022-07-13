@@ -25,7 +25,8 @@ import com.cstsncv.common.utils.R;
  *
  * @author csts
  * @email csts@gmail.com
- * @date 2022-02-24 14:42:51
+ * @date 2022-02-24 14:42
+ * :51
  */
 @RestController
 @RequestMapping("coupon/coupon")

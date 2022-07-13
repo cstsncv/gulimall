@@ -1,10 +1,13 @@
 package com.cstsncv.gulimall.product.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import lombok.Data;
 
 /**
@@ -56,5 +59,11 @@ public class CategoryEntity implements Serializable {
 	 * ÉÌÆ·ÊýÁ¿
 	 */
 	private Integer productCount;
+
+	/**
+	 *	自定义属性, 子分类
+	 */
+	@TableField(exist = false)  // 表示在数据表中不存在
+	private List<CategoryEntity> children;
 
 }
