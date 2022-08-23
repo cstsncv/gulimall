@@ -28,8 +28,13 @@ import com.cstsncv.common.utils.R;
 @RestController
 @RequestMapping("product/category")
 public class CategoryController {
+
+    private final CategoryService categoryService;
+
     @Autowired
-    private CategoryService categoryService;
+    public CategoryController(CategoryService categoryService) {
+        this.categoryService = categoryService;
+    }
 
     /**
      * 查询出所有分类及子分类, 以树形结构组装起来
