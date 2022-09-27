@@ -3,7 +3,8 @@ spring:
     nacos:
       config:
         server-addr: 127.0.0.1:8848
-        namespace: 5c1e4f5f-b77b-4362-80f3-165ea11497f7
+        namespace: 0ed61ecf-b5a3-4d40-a5ce-ddf4e203062a
         file-extension: yml
-server:
-  port: 8888
+
+  application:
+    name: gulimall-product
